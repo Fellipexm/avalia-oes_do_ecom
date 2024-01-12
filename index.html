@@ -9,7 +9,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color:lightblue;
+            background-color: lightblue;
             margin: 0;
             padding: 0;
             display: flex;
@@ -19,12 +19,10 @@
         }
 
         h1 {
-            position: relative;
-            top: -300px;
-
-            text-align: center;
-            left: 340px;
-            color: brown;
+            position: absolute;
+            top: 100px;
+            left: 665px;
+            color: rebeccapurple
         }
 
         ul {
@@ -36,7 +34,7 @@
         }
 
         li {
-        
+
             background-color: #fff;
             border: 1px solid #ddd;
             margin: 10px;
@@ -70,14 +68,15 @@
 
         #seta {
             position: absolute;
-            left: 230px;
+            align-items: center;
+            left: 390px;
             top: 65px;
 
         }
 
         #att {
             position: absolute;
-            left: 10px;
+            text-align: center;
             top: 380px;
             color: darkred;
         }
@@ -88,10 +87,16 @@
 
         #logo {
             position: absolute;
-            top: 180px;
-            left: 760px;
+            top: 260px;
+            align-items: center;
 
             width: 130px;
+        }
+
+        #comentarios-lista {
+            position: absolute;
+            top: -10px;
+
         }
 
         @media only screen and (max-width: 600px) {
@@ -102,12 +107,13 @@
                 box-sizing: border-box;
             }
 
+
             h1 {
-                position: relative;
-                top:-390px;
-                left: 100px;
-                color: brown;
+               position: relative;
+               left: 120px;
+               top: -383px;
             }
+
 
             #att {
                 position: absolute;
@@ -128,8 +134,10 @@
             }
 
             #logo {
-
-                display: none;
+                position: relative;
+               left: -81px;
+               top: -200px;
+                
 
             }
 
@@ -137,7 +145,14 @@
                 display: none;
             }
 
-            
+
+            #comentarios-lista {
+                position: relative;
+                top: -10px;
+
+            }
+
+
         }
     </style>
 </head>
@@ -148,7 +163,7 @@
     <ul id="comentarios-lista"></ul>
     <h2 id="att">Veja as avaliações dos nossos clientes aqui em tempo real,<br> (Atualize a página a cada instantes
         possa ser que
-        alguém comentou mais algo) <span id="seta">&#10140;<span></h2>
+        alguém comentou mais algo) <span id="seta">⬇️<span></h2>
 
 
     <script>
@@ -166,7 +181,7 @@
             function exibirComentarios(comentarios) {
                 comentariosLista.innerHTML = "";
 
-                comentarios.forEach(comentario => {
+                comentarios.forEach((comentario, index) => {
                     const itemLista = document.createElement("li");
                     const nomeUsuario = document.createElement("div");
                     nomeUsuario.textContent = comentario.usuario;
@@ -179,6 +194,11 @@
                     itemLista.appendChild(textoComentario);
 
                     comentariosLista.appendChild(itemLista);
+
+                    // Adiciona um deslocamento para baixo proporcional ao índice do comentário
+                    setTimeout(() => {
+                        comentariosLista.style.top = `calc(500px + ${index * 5}px)`;
+                    }, 100 * index);
                 });
             }
 
@@ -189,8 +209,11 @@
                 setInterval(function () {
                     document.body.style.backgroundColor = cores[index];
                     index = (index + 1) % cores.length;
-                }, 8000);
+                }, 1500);
             }
+
+            alterarCorFundo();
+
 
             obterComentarios();
             alterarCorFundo();
