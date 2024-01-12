@@ -22,7 +22,7 @@
             position: absolute;
             top: 100px;
             left: 665px;
-            color: rebeccapurple
+            color: rebeccapurple;
         }
 
         ul {
@@ -34,7 +34,6 @@
         }
 
         li {
-
             background-color: #fff;
             border: 1px solid #ddd;
             margin: 10px;
@@ -53,6 +52,10 @@
             margin-top: 5px;
         }
 
+        #users {
+            display: none;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -65,13 +68,11 @@
             }
         }
 
-
         #seta {
             position: absolute;
             align-items: center;
             left: 390px;
             top: 65px;
-
         }
 
         #att {
@@ -87,70 +88,70 @@
 
         #logo {
             position: absolute;
-            top: 260px;
+            top: 200px;
             align-items: center;
-
             width: 130px;
         }
 
         #comentarios-lista {
             position: absolute;
             top: -10px;
-
         }
 
         @media only screen and (max-width: 600px) {
+            body {
+                align-items: flex-start;
+            }
+
+            h1 {
+                display: none;
+            }
+
             li {
                 position: relative;
-                left: -110px;
+                left: 0;
                 width: 100%;
                 box-sizing: border-box;
             }
 
-
-            h1 {
-               position: relative;
-               left: 120px;
-               top: -383px;
-            }
-
-
-            #att {
-                position: absolute;
-                left: 20px;
-                top: 650px;
-                color: royalblue;
-
+            #att,
+            #mobile {
+                position: relative;
+                left: 0;
+                top: 0;
+                text-align: center;
             }
 
             #seta {
                 display: none;
             }
 
-            #mobile {
-                position: absolute;
-                left: 20px;
-                top: 650px;
-            }
-
             #logo {
                 position: relative;
-               left: -81px;
-               top: -200px;
-                
-
+                left: 130px;
+                top: 30px;
             }
 
             #att {
                 display: none;
             }
 
-
             #comentarios-lista {
                 position: relative;
-                top: -10px;
-
+                left: -80px;
+                top: 1500px;
+                /* Reza o valor para mover para cima */
             }
+
+            #users {
+                color: black;
+                display: block;
+                position: relative;
+                /* Adicione esta linha para permitir o uso de left */
+                left: -140px;
+                /* Ajuste este valor conforme necessário */
+            }
+
 
 
         }
@@ -164,6 +165,8 @@
     <h2 id="att">Veja as avaliações dos nossos clientes aqui em tempo real,<br> (Atualize a página a cada instantes
         possa ser que
         alguém comentou mais algo) <span id="seta">⬇️<span></h2>
+
+    <h3 id="users">Avaliações:</h3>
 
 
     <script>
