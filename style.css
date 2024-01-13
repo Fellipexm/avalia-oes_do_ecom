@@ -43,10 +43,7 @@ li {
     margin-top: 5px;
 }
 
-#users {
-    display: none;
-}
-
+#users,
 #moiy {
     display: none;
 }
@@ -135,31 +132,25 @@ li {
         position: absolute;
         left: -10px;
         top: -5000px;
-      
         height: 10px;
     }
 
+    #users {
+        color: black;
+        display: block;
+        position: relative;
+        left: -70px;
+    }
 
+    #moiy {
+        display: block;
+        position: absolute;
+        left: 60px;
+        top: 300px;
+    }
 }
 
-#users {
-    color: black;
-    display: block;
-    position: relative;
-    left: -70px;
-   
-}
-
-
-#moiy{
-    display: block;
-    position: absolute;
-    left: 60px;
-    top: 300px;
-}
-
-
-#cliente{
+#cliente {
     position: absolute;
     left: 100px;
     top: 30px;
